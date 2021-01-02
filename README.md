@@ -1,7 +1,5 @@
 # Google clone app
 
-### Link:https://clone-8d246.web.app
-
 2021-01-02
 
 ```
