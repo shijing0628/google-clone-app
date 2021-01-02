@@ -2,25 +2,111 @@ import React from 'react'
 import useGoogleSearch from '../../useGoogleSearch'
 import { useStateValue } from '../../StateProvider'
 import './SearchPage.css'
+import Response from '../../response'
+import { Link } from 'react-router-dom'
+import Search from '../../components/Search/Search'
+import SearchIcon from '@material-ui/icons/Search';
+import ImageIcon from '@material-ui/icons/Image';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import RoomIcon from '@material-ui/icons/Room';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import DescriptionIcon from '@material-ui/icons/Description';
+import SettingsIcon from '@material-ui/icons/Settings';
+
 
 
 
 function SearchPage() {
- const [{ term }, dispatch] = useStateValue()
- const { data } = useGoogleSearch(term)
+ const [{ term = "tesla" }, dispatch] = useStateValue()
 
+ // LIVE API CALL
+ const { data } = useGoogleSearch(term)
  // https://developers.google.com/custom-search/v1/using_rest
 
  // https://cse.google.com/cse/create/new
+
+ // Dev tool- > network-> all -> click v1?key=....> click response. this is the way we get data from google.
+ //mock api for testing
+ //const data = Response;
  console.log(data)
+
+
  return (
   <div className="searchPage">
    <div className="searchPage__header">
-    {term}
+    <Link to="/">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/368px-Google_2015_logo.svg.png" className="searchPage__logo" alt="" />
+    </Link>
+    <div className="searchPage__headerBody">
+     <Search hideButtons />
+     <br></br>
+     <div className="searchPage__options">
+      <div className="searchPage__optionsLeft">
+       <div className="searchPage__option">
+        <SearchIcon />
+        <Link to="/all">All</Link>
+       </div>
+       <div className="searchPage__option">
+        <DescriptionIcon />
+        <Link to="/news">News</Link>
+       </div>
+       <div className="searchPage__option">
+        <ImageIcon />
+        <Link to="/images">Images</Link>
+       </div>
+       <div className="searchPage__option">
+        <LocalOfferIcon />
+        <Link to="/shopping">shopping</Link>
+       </div>
+       <div className="searchPage__option">
+        <RoomIcon />
+        <Link to="/maps">maps</Link>
+       </div>
+       <div className="searchPage__option">
+        <MoreVertIcon />
+        <Link to="/more">more</Link>
+       </div>
+      </div>
+      <div className="searchPage__optionsRight">
+       <div className="searchPage__option">
+        <Link to="/settings">Settings</Link>
+       </div>
+       <div className="searchPage__option">
+        <Link to="/tools">Tools</Link>
+       </div>
+      </div>
+     </div>
+    </div>
    </div>
-   <div className="searchPage__result">
+   {
+    term && (
+     <div className="searchPage__results">
+      <p className="searchPage__resultCount">
+       About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.formattedSearchTime}seconds) for {term}
+      </p>
+      {
+       data?.items.map(item => (
+        <div className="searchPage__result">
+         <a href={item.link}>
+          {item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src
+           && (
+            <img className="searchPage__resultImage" src={item.pagemap?.cse_image?.length > 0 && item.pagemap?.cse_image[0]?.src} alt="no image" />
+           )}
+          {item.displayLink}</a>
+         <a className="searchPage__result searchPage__resultTitle" href={item.link}>
+          <h2 >{item.title}</h2>
+         </a>
+         <p className="searchPage__resultSnippet">
+          {item.snippet}
+         </p>
+        </div>
+       ))
+      }
+     </div>
+    )
+   }
 
-   </div>
+
   </div>
  )
 }

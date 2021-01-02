@@ -6,10 +6,19 @@
 React custom hook, material UI, firebase, google search api, context api,useReducer
 ```
 
-Google api:
-**https://developers.google.com/custom-search/v1/using_rest**
+Google api for search:
+**https://developers.google.com/custom-search/v1/using_rest**, click get a key!
+<br>
+![](2021-01-02-12-37-35.png)
+<br>
 
 **https://cse.google.com/cse/create/new**
+
+<br>
+![](2021-01-02-16-22-41.png)
+<br>
+![](2021-01-02-16-22-06.png)
+<br>
 
 ### Getting Started with Create React App
 
