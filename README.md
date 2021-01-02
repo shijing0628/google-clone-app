@@ -14,9 +14,8 @@ Google api for search:
 
 **https://cse.google.com/cse/create/new**
 
-<br>
 ![](2021-01-02-16-22-41.png)
-<br>
+
 ![](2021-01-02-16-22-06.png)
 <br>
 
