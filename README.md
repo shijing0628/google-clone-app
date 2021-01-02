@@ -1,9 +1,11 @@
 # Google clone app
 
+### Link:https://clone-8d246.web.app
+
 2021-01-02
 
 ```
-React custom hook, material UI, firebase, google search api, context api,useReducer
+React custom hook, material UI, firebase, google search api, context api,useReducer, firebase deploy
 ```
 
 Google api for search:
