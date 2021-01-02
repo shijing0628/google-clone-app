@@ -3,8 +3,12 @@
 2021-01-02
 
 ```
-React custom hook, material UI, firebase, google search api, context api(redux)
+React custom hook, material UI, firebase, google search api, context api,useReducer
 ```
+
+**https://developers.google.com/custom-search/v1/using_rest**
+
+**https://cse.google.com/cse/create/new**
 
 ### Getting Started with Create React App
 
