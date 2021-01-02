@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Google clone app
+
+2021-01-02
+
+```
+React custom hook, material UI, firebase, google search api, context api(redux)
+```
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
